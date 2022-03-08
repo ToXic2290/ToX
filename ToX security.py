@@ -96,7 +96,7 @@ class AdminToolsMod(loader.Module):
 
   
     async def kickcmd(self, message):
-        """Выгнать нахуй отсюда\nПиши: .kick <@ или реплай>."""
+        """Выгнать из группы\n .kick <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
@@ -143,7 +143,7 @@ class AdminToolsMod(loader.Module):
             return await utils.answer(message, self.strings('no_args', message))
 
     async def bancmd(self, message):
-        """БАН НАХУЙ\nПиши: .ban <@ или реплай>."""
+        """Забанить пользователя\n .ban <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
@@ -189,7 +189,7 @@ class AdminToolsMod(loader.Module):
             return await utils.answer(message, self.strings('no_args', message))
 
     async def unbancmd(self, message):
-        """Снять бан, заслужил.\nПиши: .unban <@ или реплай>."""
+        """Разбанить пользователя\n .unban <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
@@ -217,7 +217,7 @@ class AdminToolsMod(loader.Module):
             return await utils.answer(message, self.strings('no_args', message))
 
     async def mutecmd(self, message):
-        """Закрыть рот человеку\nПиши: .mute <@ или реплай> <time (1m, 1h, 1d)>."""
+        """Выдать мут\n .mute <@ или реплай> <time (1m, 1h, 1d)>."""
         if not message.is_private:
             args = utils.get_args_raw(message).split()
             reply = await message.get_reply_message()
@@ -287,7 +287,7 @@ class AdminToolsMod(loader.Module):
             await utils.answer(message, self.strings('this_isn`t_a_chat', message))
 
     async def unmutecmd(self, message):
-        """Открыть рот человеку\nПиши: .unmute <@ или реплай>."""
+        """Снять мут\n .unmute <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
