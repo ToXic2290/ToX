@@ -56,12 +56,12 @@ class AdminToolsMod(loader.Module):
     """ToX security"""
     strings = {'name': 'ToX security',
                'not_pic': '<b>This isn`t an pic/sticker.</b>',
-               'wait': '<b>Подождите...</b>',
+               'wait': '<b>Загрузка...</b>',
                'pic_so_small': '<b>The image is too small, try another one.</b>',
                'pic_changed': '<b>Chat pic changed.</b>',
                'promote_none': '<b>No one to promote.</b>',
                'who': '<b>Who is it?</b>',
-               'not_admin': '<b>Я не могу банить, я не админ :( :(</b>',
+               'not_admin': '<b>Я не админ:(</b>',
                'promoted': '<b>{} promoted to admin rights.\nRank: {}</b>',
                'wtf_is_it': '<b>What is it?</b>',
                'this_isn`t_a_chat': '<b>This isn`t a chat!</b>',
@@ -77,16 +77,16 @@ class AdminToolsMod(loader.Module):
                'can`t_kick': '<b>Can`t kick.</b>',
                'kicking': '<b>Удаляю...</b>',
                'kick_none': '<b>Никого не выгнал</b>',
-               'kicked': '<b>{} кикнул из чата</b>',
+               'kicked': '<b>{} был изгнан из чата..)</b>',
                'kicked_for_reason': '<b>{} выгнал из чата на\nReason: {}.</b>',
                'banning': '<b>Баню...</b>',
-               'banned': '<b>{} успешно был забанен, сам виноват</b>',
-               'banned_for_reason': '<b>{} забанен на\nReason: {}</b>',
+               'banned': '<b>{} палучает бан (по роже), сам виноват</b>',
+               'banned_for_reason': '<b>{} получает бан на\nReason: {}</b>',
                'ban_none': '<b>Никого не забанил</b>',
                'unban_none': '<b>Никого не разбанил</b>',
                'unbanned': '<b>{} так уж и быть, получает разбан</b>',
                'mute_none': '<b>No one to mute.</b>',
-               'muted': '<b>{} получает мут, жаль человека)</b>',
+               'muted': '<b>{} получает мут, жаль человека) </b>',
                'no_args': '<b>Неверный аргумент.</b>',
                'unmute_none': '<b> Мут ни у кого не снял</b>',
                'unmuted': '<b>{} теперь может разговаривать</b>',
@@ -96,7 +96,7 @@ class AdminToolsMod(loader.Module):
 
   
     async def kickcmd(self, message):
-        """Выгнать из группы\n .kick <@ или реплай>."""
+        """Исключить из группы\n .kick <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
@@ -143,7 +143,7 @@ class AdminToolsMod(loader.Module):
             return await utils.answer(message, self.strings('no_args', message))
 
     async def bancmd(self, message):
-        """Забанить пользователя\n .ban <@ или реплай>."""
+        """Выдать бан\n .ban <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
@@ -189,7 +189,7 @@ class AdminToolsMod(loader.Module):
             return await utils.answer(message, self.strings('no_args', message))
 
     async def unbancmd(self, message):
-        """Разбанить пользователя\n .unban <@ или реплай>."""
+        """Снять бан\n .unban <@ или реплай>."""
         if message.is_private:
             return await utils.answer(message, self.strings('this_isn`t_a_chat', message))
         try:
